@@ -45,7 +45,9 @@ por fim, torna mais perceptível uma implementação mais direta, já que
 evidenciam como usar laços iterativos em vez de chamadas recursivas para as
 repetições nas produções.
 
-Quais elementos, EBNFs introduzem? Na prática, isso varia bastante entre as notações concretas usadas pelos diferentes projetos. Mas alguns elementos são bastante comuns:
+Quais elementos, EBNFs introduzem? Na prática, isso varia bastante entre as
+notações concretas usadas pelos diferentes projetos. Mas alguns elementos são
+bastante comuns:
 
 - `X+`: indica que `X` pode ser repetido 1 ou mais vezs
 - `X*`: indica que `X` pode ser repetido 0 ou mais vezs
@@ -103,7 +105,9 @@ E isso é tudo que precisamos para nosso parser.
 - ainda vamos manter a LP tratando apenas inteiros, por simplicidade
 
 Nossas duas linguagens até agora nos permitiram escrever qualquer expressão
-aritmética. Ambas, contudo, obrigam o programador a expressar explicitamente a ordem das operações em vez de permitir as expressões convencionais com as quais estamos acostumados. 
+aritmética. Ambas, contudo, obrigam o programador a expressar explicitamente a
+ordem das operações em vez de permitir as expressões convencionais com as quais
+estamos acostumados. 
 
 A linguagem `calc` que vamos introduzir agora resolverá essa questão
 definitivamente. Ela nos permitirá escrever expressões aritméticas usando a
@@ -215,7 +219,10 @@ se trata de um mesmo operador: são dois operadores distintos `⊕`  e `⊞` (le
 estes são apenas símbolos genéricos, tipicamente usados quando tratamos de
 linguagens ou notações, para nos referirmos a operadores quaisquer).
 
-A solução para isso é uma nova tomada de decisão que ordena os operadores em classes de _precedência_. Acredito que a precedência de operadores matemáticos são fáceis de você recordar do ensino médio e fundamental. De toda forma, seguem as precedências convencionalmente usadas.
+A solução para isso é uma nova tomada de decisão que ordena os operadores em
+classes de _precedência_. Acredito que a precedência de operadores matemáticos
+são fáceis de você recordar do ensino médio e fundamental. De toda forma,
+seguem as precedências convencionalmente usadas.
 
 - baixa: `-` e `+`
 - média: `*` e `/`
@@ -259,9 +266,9 @@ gramática e da LP, portanto. Uma gramática bem escrita deixa explícito se uma
 sequência de operadores iguais deve ser agrupada da esquerda para a direita, da
 direita para a esquerda, ou se tal sequência é proibida.
 
-> (*) Um detalhe aqui. Na prática, é comum definimos associatividade para grupos de
-> operadores que estão na mesma categoria de precedência. Assim, por exemplo,
-> definimos as regras de associatividade
+> (*) Um detalhe aqui. Na prática, é comum definimos associatividade para
+> grupos de operadores que estão na mesma categoria de precedência. Assim, por
+> exemplo, definimos as regras de associatividade
 
 A aridade também aparece nesse projeto. As produções determinam quantos
 operandos cada construtor sintático espera e como eles se combinam. Um operador
