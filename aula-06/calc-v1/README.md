@@ -2,7 +2,7 @@
 
 ## Sintaxe
 
-```
+```python
 exp    ::= exp + termo | exp - termo | termo
 termo  ::= termo * fator | termo / fator | fator
 fator  ::= atomo ** fator | atomo
@@ -175,13 +175,6 @@ exp   ::= termo exp'
 exp'  ::= + termo exp' | - termo exp' | ε
 ```
 
-E agora, para termo:
-
-```python
-exp   ::= termo exp'
-exp'  ::= + termo exp' | - termo exp' | ε
-```
-
 #### Passo 2: Fatoramento à esquerda de `fator`
 
 A regra `fator` tem um prefixo comum: `atomo`. Então, podemos colocá-lo em
@@ -241,10 +234,10 @@ outra vazia). Logo, podemos voltar a unificar essas regras às de base
 correspondentes, usando o operador opcional de EBNF para eliminar o `ε`.
 
 ```python
-exp     ::= termo { ( + | - ) termo }
-termo   ::= fator { ( * | / ) fator }
-fator   ::= atomo [ ** fator ]
-atomo   ::= INTEIRO | ( exp )
+exp     ::= termo { ( '+' | '-' ) termo }
+termo   ::= fator { ( '*' | '/' ) fator }
+fator   ::= atomo [ '**' fator ]
+atomo   ::= INTEIRO | '(' exp ')'
 ```
 
 E esta é a gramática de `calc` totalmente adaptada para nossa implementação do

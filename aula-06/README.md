@@ -100,9 +100,15 @@ A ::= a
 B ::= b [ A ] c
 ```
 
+ou até… (nesta opção, eliminamos uma regra que produz apenas um símbolo)
+
+```python
+B ::= b [ a ] c
+```
+
 #### eliminação de recursões à esquerda
 
-- este é o caso com que nos deparamos na gramática de `calc`;
+- este é mais um caso com que nos deparamos na gramática de `calc`;
 
 - o terceiro exercício da aula passada indicava a solução para o desafio:
   uma regra de reescrita de regras de produção que permite produzir novas
@@ -159,11 +165,17 @@ B ::= b [ A ] c
 
 #### fatoramento à esquerda
 
-- quando há múltiplas regras com um mesmo prefixo, é conveniente fatorá-las à
+- esta é outra situação bastante corriqueira quando manipulamos gramáticas BNF:
+  várias produções têm prefixos semelhantes;
+
+- quando há múltiplas produções têm um mesmo prefixo, é conveniente fatorá-las à
   esquerda; isso evita a necessidade de escolher entre diferentes produções antes
   de que a decisão seja possível;
 
-- a regra é expressa da seguinte forma:
+- (de fato, às vezes é conveniente fazer procedimento semelhante com sufixos, à
+  direita, portanto)
+
+- a regra de fatoramento à esquerda é expressa da seguinte forma:
 
 ```python
 A  ::=  α β₁ | α β₂ | ... | α βₙ | γ        # original em BNF

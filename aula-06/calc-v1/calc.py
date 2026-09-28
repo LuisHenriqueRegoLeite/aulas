@@ -134,7 +134,7 @@ def interpretador(ast: Ast) -> int | float | Erro:
 
 
 def main():
-    programa = input("mlisp? ")
+    programa = input("calc? ")
 
     tokens = tokenizador(programa)
     ast = parser(tokens)
