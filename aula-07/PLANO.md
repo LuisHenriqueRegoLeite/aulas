@@ -71,18 +71,22 @@ gradual.
 
 A semântica é expressa por meio de um **julgamento de avaliação**:
 
+$$
 \[
 \langle e, \rho \rangle \Downarrow v
 \]
+$$
 
 Lê-se: *"a expressão `e`, sob o ambiente `ρ`, avalia para o valor `v`"*.
 
 Este julgamento é definido **indutivamente** por um conjunto de **regras de
 inferência** (regras de avaliação), cada uma com a forma:
-
+ 
+$$
 \[
 \frac{\text{premissas}}{\text{conclusão}}
 \]
+$$
 
 Se todas as premissas são deriváveis, a conclusão também é. A semântica
 big-step caracteriza-se por **avaliar a expressão inteira em um único passo**,
@@ -94,9 +98,11 @@ produzindo diretamente o valor final.
 
 ### 4.1 Números
 
+$$
 \[
 \frac{}{\langle n, \rho \rangle \Downarrow n} \quad \text{(Num)}
 \]
+$$
 
 Um literal numérico avalia para si mesmo, independentemente do ambiente.
 
@@ -105,6 +111,7 @@ Um literal numérico avalia para si mesmo, independentemente do ambiente.
 
 Para cada operador binário `op ∈ {+, -, *, /}`:
 
+$$
 \[
 \frac{
   \langle e_1, \rho \rangle \Downarrow v_1 \qquad
@@ -114,6 +121,7 @@ Para cada operador binário `op ∈ {+, -, *, /}`:
   \langle e_1 \text{ op } e_2, \rho \rangle \Downarrow v
 } \quad \text{(Op)}
 \]
+$$
 
 **Leitura:** para avaliar uma expressão `e1 op e2`, avaliamos primeiro `e1` no
 ambiente `ρ`, obtendo `v1`; em seguida avaliamos `e2` no mesmo ambiente `ρ`,
@@ -128,6 +136,7 @@ isso chamada de natural).
 
 ### 4.3 Divisão por Zero (Erro)
 
+$$
 \[
 \frac{
   \langle e_1, \rho \rangle \Downarrow v_1 \qquad
@@ -136,6 +145,7 @@ isso chamada de natural).
   \langle e_1 \text{ / } e_2, \rho \rangle \Downarrow \mathbf{erro}
 } \quad \text{(DivZero)}
 \]
+$$
 
 A divisão por zero é um caso especial que produz o valor `erro`, propagando-se
 pela avaliação.
@@ -146,6 +156,7 @@ pela avaliação.
 Se uma subexpressão avalia para `erro`, o resultado da expressão inteira também
 é `erro`:
 
+$$
 \[
 \frac{
   \langle e_1, \rho \rangle \Downarrow \mathbf{erro}
@@ -159,6 +170,7 @@ Se uma subexpressão avalia para `erro`, o resultado da expressão inteira tamb�
   \langle e_1 \text{ op } e_2, \rho \rangle \Downarrow \mathbf{erro}
 } \quad \text{(ErrDir)}
 \]
+$$
 
 Note o quanto essa especificação se assemelha ao esquema de erros monádico que
 montamos para nossa implementação.
