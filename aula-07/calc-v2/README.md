@@ -1,4 +1,4 @@
-# Especificação da Sintaxe de `calc`
+# Especificação de `calc`
 
 ## Sintaxe
 
