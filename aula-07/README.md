@@ -15,4 +15,9 @@ atenção para a semântica.
 
 ## Formalização da Semântica
 
-Na nossa aula 02, mostramos como formalizar a semântica 
+Nas aulas anteriores, especificamos a semântica da LP por regras de transição.
+Na prática, trata-se de uma semântica operacional small-step. Nesta parte do curso, faremos a transição para regras de semântica operacional big-step.
+
+Leia o arquivo com a [Parte 1 de Semântica Operacional Big-Step](semantica-operacional-big-step-p1.md). É um mínimo ajuste sobre o que
+usei em sala de aula na Aula 07. Ainda farei novos ajustes (em relação ao que
+falamos em sala de aula), então fiquem atentos.
