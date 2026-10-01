@@ -49,22 +49,36 @@ discutido nas aulas anteriores.
 
 ## 2. Domínios Semânticos
 
-Definimos os domínios de valores e de resultados:
+Um _domínio semântico_ é um conjunto matemático formal que representa algum
+aspecto relativo às execuções dos programas da linguagem. Estes são os domínios
+semânticos para nossa linguagem:
 
-| Domínio            | Descrição |
-|--------------------|-----------|
-| `ℤ`                | Conjunto dos números inteiros |
-| `Val = ℤ ∪ {erro}` | Valores possíveis: inteiros ou o valor especial `erro` |
-| `Env = Var ⇀ Val`  | Ambiente: função parcial de variáveis para valores |
+| Domínio                                       | Descrição                                                                  |
+|-----------------------------------------------|----------------------------------------------------------------------------|
+| $ℝ$                                           | Os números reais.                                                          |
+| $\mathrm{Val} = ℝ ∪ \\{ \mathtt{erro} \\}$    | *Os valores possíveis*: os reais ou o valor especial `erro`                |
+| $\mathit{Env} = \mathit{Var} ⇀ \mathit{Val}$  | Domínio dos ambientes (estado semântico)                                   |
 
+O conjunto $\mathrm{Var}$ que aparece na definição do terceiro domínio
+semântico acima é apenas a categoria sintática das _variáveis_ (ou
+identificadores) de nossa linguagem. Para o caso específico de `calc`,
+obviamente, é o conjunto vazio, já que a LP não tem variáveis. Como mencionei
+em sala de aula, a ideia aqui é apenas prepararmos o caminho para nossa próxima
+linguagem.
 
-O **ambiente** `ρ` é uma função parcial que associa nomes de variáveis a
-valores. Na próxima linguagem, `ρ` será construído com dicionários. Nesta
-versão `calc-v2` (em que não temos variáveis) o ambiente está sempre vazio. A
-ideia é apenas introduzir a nova forma de notação formal de semântica de forma
-gradual.
+Definiremos ainda a família de funções denotadas por $f_{\mathrm{op}} = ℝ \ × \
+ℝ ⇀ ℝ$. Trata-se das operações semânticas associadas aos operadores (ou
+símbolos operacionais) da linguagem. Ao operador `*`, por exemplo, teremos
+associada a operação $f_{*}$ que é, naturalmente, a multiplicação definida
+sobre os números reais.
 
-> **Nota:** `Var` é o conjunto (infinito) de identificadores válidos da linguagem.
+Por fim, observe que $\mathit{Env}$ é o domínio dos ambientes e que um
+**ambiente** $ρ \in \mathit{Env}$ é uma função parcial que associa nomes de
+variáveis a valores. Na próxima linguagem, $ρ$ será construído com dicionários.
+Nesta versão de `calc` (em que não temos variáveis) o ambiente é sempre vazio.
+A ideia, neste ponto, é que possamos introduzir a nova forma de notação formal
+de semântica de forma gradual. Na próxima aula, faremos melhor uso de
+ambientes. 
 
 
 ## 3. Forma do Julgamento
@@ -116,7 +130,7 @@ $$
 \frac{
   \langle e_1, \rho \rangle \Downarrow v_1 \qquad
   \langle e_2, \rho \rangle \Downarrow v_2 \qquad
-  v_1 \text{ op } v_2 = v
+  f_{\mathrm{op}}(v_1, v_2) = v
 }{
   \langle e_1 \text{ op } e_2, \rho \rangle \Downarrow v
 } \quad \text{(Op)}
