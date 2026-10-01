@@ -13,6 +13,11 @@ isso, parcialmente.
 Nosso foco, contudo, foi na _sintaxe_ da LP. Nesta aula, vamos mudar nossa
 atenção para a semântica.  
 
+> Antes de entrarmos em semântica, fizemos uma breve digressão para o
+> analisador léxico. O motivo é que eu precisei reimplementar o lexer, para
+> prepará-lo para as próximas etapas do curso. Leia sobre isso no arquivo
+> [RENOVACAO-DO-LEXER.md](RENOVACAO-DO-LEXER.md).
+
 ## Semântica
 
 Nas aulas anteriores, especificamos a semântica da LP por regras de transição.
